@@ -1,0 +1,72 @@
+.outerLayout{
+    align-items: center;
+    align-content: center;
+    padding-top: 15px;
+    padding-bottom: 80px;
+    width: 20%;
+    padding-left: 26%; 
+}
+
+.Button{
+    border-color: transparent;
+    background-color:white;
+}
+
+.icons{
+    color:black;
+}
+
+.matCard{
+    padding-top: 50px;
+    padding-left: 10%;
+    align-items: center;
+    align-content: center;
+    background-color:white;
+    width: 400px; 
+    height: 200px;
+}
+
+.inputs{
+    align-content: center;
+    align-items: center;
+    padding-left: 6%;
+    width: 10%;
+    background-color:transparent;
+}
+
+.matCard1{
+    padding-top: 50px;
+    background-color:white;
+    align-content: center;
+    align-items: center;
+    width: 400px; 
+    /* height: 200px; */
+    box-shadow: 0 14px 28px rgba(110, 108, 108, 0.22), 0 10px 10px rgba(110, 108, 108, 0.22);
+
+}
+
+.cardContent{
+    width: 50%;
+    height: 50%;
+    padding-top: 0%;
+}
+
+
+.colorMenuDiv {
+    width:136px;
+    height:110px;
+    position:absolute;
+    z-index: 2;
+    border:1px solid #e8e8e8
+}
+
+.colorMenuButton {
+    height:26px;
+    width:26px;
+    margin:4px;
+}
+.button{
+    background-color: transparent;
+margin-left: 2%;
+margin-right: 2%;
+}

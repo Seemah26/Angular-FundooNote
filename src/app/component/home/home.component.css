@@ -1,0 +1,119 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+main {
+  padding: 10px;
+}
+/* padding left and right is for search and reset icons */
+.slinput input {
+  padding:10px;
+  width:80%;
+  border:1px solid #ccc;
+  padding-left:31px;
+  padding-right:30px;
+  color:black;
+  font-family: arial,sans-serif;
+  font-size: 16px;
+}
+/* Remove IE10's “clear field” X button */
+.slinput input::-ms-clear {
+    display: none;
+}
+.slinput input:focus {
+  border:1px solid #4d90fe;
+}
+
+/* left side icon style (search icon) */
+.slinput .left-icon {
+  position:absolute;
+  left:10px;
+  top:11px;
+}
+.slinput .fa {
+  color:rgb(15, 14, 14);
+  font-size: 16px;
+}
+.slinput .fa-close {
+  color:#ccc;
+}
+
+.slinput .active {
+  color:#555;
+}
+/* right side icon style (search icon) */
+.slinput .right-icon {
+  position:absolute;
+  right:10px;
+  top:11px;
+  cursor:pointer;
+}
+.slinput {
+  position:relative;
+  width:100%;
+}
+
+.topButtons{
+  background-color: transparent;
+  align-content: center;
+  align-items: center;
+  padding: 8px;
+  border: transparent;
+  cursor: pointer;
+  /* border-radius: 500%; */
+  
+}
+
+.image {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 600%;
+  border: transparent
+}
+
+.imageonClick{
+  background-color: white;
+  width: 100px;
+  align-content: center;
+  align-self: center;
+  height: 100px;
+  padding-left: 20%;
+  border-radius: 300%;
+}
+
+.keepImage{
+  width:45px;
+  padding-top: 17%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.mainTogle{
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: Blue;
+  margin-top:50px ;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: -5px;
+  margin-right: 6px;
+}
+
+.container {
+  position: relative;
+  font-family: Arial;
+}
+

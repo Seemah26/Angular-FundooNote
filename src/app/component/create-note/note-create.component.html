@@ -1,0 +1,25 @@
+<form [formGroup]="createNoteForm" (ngSubmit)="onSubmit(createNoteForm.value)" class="createNoteBox">
+  <mat-accordion>
+    <mat-expansion-panel  >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="form-group">
+            <input matInput placeholder="Title" formControlName="title" class="form-control">
+          </div>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header >
+      <mat-form-field>
+        <div class="form-group">
+          <input matInput placeholder="Take a note..." formControlName="description" class="form-control">
+        </div>
+      </mat-form-field>
+      <div class="form-group">
+        <button mat-button [disabled]="loading" class="button">save</button>
+      </div>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel>
+  </mat-accordion>
+</form>

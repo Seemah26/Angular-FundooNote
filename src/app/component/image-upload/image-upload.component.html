@@ -1,0 +1,10 @@
+<div align="center" >
+<mat-card >
+  <img src="">
+  <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+  <button (click)="fileInput.click()">Select File</button>
+  <button (click)="onUpload()">Upload!</button><br><br><br>
+  <button (click)="cancel()">cancel</button><br><br><br>
+  <i> Please select a picture from local directory</i>
+ </mat-card>
+</div>

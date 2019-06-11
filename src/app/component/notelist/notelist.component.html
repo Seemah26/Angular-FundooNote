@@ -1,0 +1,98 @@
+<app-note-create></app-note-create>
+
+<div fxLayout="space-around" fxLayoutGap.xs="0" fxLayout.xs="column" fxLayoutGap="20px" fxLayout.gt-xs="row wrap"
+  fxLayout="row wrap" class="notegrid" [ngClass]="grid ? 'notegrid-grid-view': 'notegrid-list-view'">
+  <app-pinned-notes [ngClass]="{'card-grid': !view,'card-list': view}" [products]="products| noteFilter:'pinned'"
+    (refreshEvent)="childStatusChanged($event)"> </app-pinned-notes>
+</div>
+
+<div *ngIf="products" align="center">
+  <i>Other Notes are</i>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div *ngFor="let products of products| noteFilter">
+    <mat-card [style.background-color]="products.colore" class="matCard1">
+      <i class="fa fa-eyedropper" (click)="changeColor(products)" id="{{products.title}}"
+        style="color: black; background-color: white ; float:right"></i>
+      <mat-card-title>
+
+        <div *ngFor="let item of products.imageList">
+
+          <img [src]="transformImage(item)" height="20%" width="20%" style="float: left;" />
+
+        </div>
+
+      </mat-card-title>
+      <mat-card-content (click)="openDialog(products)">
+
+        <input matInput placeholder="Title" value={{products.title}} [formControl]="title"> <br><br><br>
+        <input matInput placeholder="Description" value="{{products.description}}" [formControl]="description">
+      </mat-card-content>
+
+      <mat-chip-list #chipList class="chipList">
+        <mat-chip *ngIf="products.reminder" [removable]="removable" (removed)="removeReminder(products)">
+          <mat-icon>timer</mat-icon>
+          {{products.reminder | date:'short'}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <!-- <div *ngFor="let item of products.imageList">
+
+            <img [src]="transformImage(item)" height="20%" width="20%" style="float: left;"/>
+    
+          </div> -->
+
+        <mat-chip *ngFor="let label of products.labelList" [removable]="removable"
+          (removed)="removeLabel(label,products)">
+          {{label.labelName}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+      <!-- <mat-card-content> -->
+      <div class="bottomButtons" >
+        <button class="button" mat-button matTooltip="Remind me">
+          <mat-icon (click)="openRemainder(products)" class="icons">add_alert</mat-icon>
+        </button>
+        <button class="button" (click)="onClickDialogBox(products)" mat-button matTooltip="Collaborator"
+          [style.background-color]="products.colore">
+          <mat-icon class="icons">person_add</mat-icon>
+        </button>
+        &nbsp;&nbsp;<i class="material-icons innerIconDiv" (click)="colorChange(products)">
+          color_lens
+        </i> &nbsp;
+        <div *ngIf="products.colorMenu==100" class="colorMenuDiv">
+          <button class="colorMenuButton" mat-mini-fab *ngFor="let customColor of colors"
+            [style.background]="customColor" (click)="addColor(customColor,products)">
+          </button>
+        </div>
+
+        <!-- <button class="button" mat-icon-button matTooltip="Add image">
+          <mat-icon class="icons">image</mat-icon>
+        </button> -->
+
+        <i class="material-icons innerIconDiv" (click)="fileInput.click()">
+          photo
+        </i>
+        <input #fileInput type="file" style="display:none" (change)="onFileSelected($event,products)">
+        <button mat-button class="button" matTooltip="isArchive">
+          <mat-icon class="icons" (click)=onArchive(products)>archive</mat-icon>
+        </button>
+
+        <button mat-button class="button" [matMenuTriggerFor]="more" matTooltip="more">
+          <mat-icon class="icons">more_vert</mat-icon>
+        </button>
+        <mat-menu #more="matMenu" class="morecard">
+          <button mat-button (click)=onTrash(products)>Delete Note</button>
+          <button (click)="onClickDialog(products)" mat-button class="morecard"> Add Label</button>
+        </mat-menu>
+        <button class="button" mat-button matTooltip="undo">
+          <mat-icon class="icons">undo</mat-icon>
+        </button>
+        <button class="button" mat-button matTooltip="redo">
+          <mat-icon class="icons">redo</mat-icon>
+        </button>
+      </div>
+      <!-- </mat-card-content> -->
+    </mat-card><br><br>
+  </div>
+</div>
